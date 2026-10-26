@@ -193,17 +193,3 @@ L = - Σ pᵢ log qᵢ
 ### 3.4 应用
 
 交叉熵常用于图像分类、文本分类、语言模型、推荐系统点击率预估等任务。它既可以作为分类损失函数，也可以从极大似然角度解释为负对数似然。
-
----
-
-## 4. Git 提交说明
-
-将本文件保存为 README.md，在本地仓库执行：
-
-```bash
-git init
-git add README.md
-git commit -m "提交SVD、贝叶斯过程与交叉熵作业"
-git branch -M main
-git remote add origin <你的远程仓库地址>
-git push -u origin main
