@@ -41,45 +41,52 @@ $$
 ### 1.3 自己设计的例子
 
 取矩阵：
-$$
-A = \begin{pmatrix} 3 & 0 \\ 4 & 5 \end{pmatrix}
-$$
+A = [ 3   0 ]
+    [ 4   5 ]
 
-计算：
-$$
-A^T A = \begin{pmatrix} 3 & 4 \\ 0 & 5 \end{pmatrix} \begin{pmatrix} 3 & 0 \\ 4 & 5 \end{pmatrix} = \begin{pmatrix} 25 & 20 \\ 20 & 25 \end{pmatrix}
-$$
+计算 AᵀA：
+Aᵀ = [ 3   4 ]
+     [ 0   5 ]
+
+AᵀA = [ 3   4 ] * [ 3   0 ] = [ 25   20 ]
+      [ 0   5 ]   [ 4   5 ]   [ 20   25 ]
 
 求特征值：
-$$
-\det(A^T A - \lambda I) = (25 - \lambda)^2 - 400 = 0
-$$
+det(AᵀA - λI) = (25 - λ)² - 400 = 0
 得到 λ₁ = 45，λ₂ = 5。
 因此奇异值为：σ₁ = 3√5，σ₂ = √5。
 
 对应单位特征向量可取：
-$$
-v_1 = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \quad v_2 = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ -1 \end{pmatrix}
-$$
+v₁ = (1/√2) * [ 1 ]
+              [ 1 ]
+
+v₂ = (1/√2) * [  1 ]
+              [ -1 ]
 
 计算左奇异向量：
-$$
-Av_1 = \begin{pmatrix} 3 & 0 \\ 4 & 5 \end{pmatrix} \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \frac{1}{\sqrt{2}} \begin{pmatrix} 3 \\ 9 \end{pmatrix}
-$$
+Av₁ = [ 3   0 ] * (1/√2) * [ 1 ] = (1/√2) * [ 3 ]
+      [ 4   5 ]             [ 1 ]           [ 9 ]
+
 单位化得：
-$$
-u_1 = \frac{Av_1}{\sigma_1} = \begin{pmatrix} \frac{1}{\sqrt{10}} \\ \frac{3}{\sqrt{10}} \end{pmatrix}
-$$
+u₁ = Av₁ / σ₁ = [ 1/√10 ]
+                [ 3/√10 ]
 
 同理：
-$$
-Av_2 = \frac{1}{\sqrt{2}} \begin{pmatrix} 3 \\ -1 \end{pmatrix}, \quad u_2 = \frac{Av_2}{\sigma_2} = \begin{pmatrix} \frac{3}{\sqrt{10}} \\ -\frac{1}{\sqrt{10}} \end{pmatrix}
-$$
+Av₂ = (1/√2) * [  3 ]
+               [ -1 ]
 
-于是得到：
-$$
-U = \begin{pmatrix} \frac{1}{\sqrt{10}} & \frac{3}{\sqrt{10}} \\ \frac{3}{\sqrt{10}} & -\frac{1}{\sqrt{10}} \end{pmatrix}, \quad \Sigma = \begin{pmatrix} 3\sqrt{5} & 0 \\ 0 & \sqrt{5} \end{pmatrix}, \quad V = \begin{pmatrix} \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \end{pmatrix}
-$$
+u₂ = Av₂ / σ₂ = [  3/√10 ]
+                [ -1/√10 ]
+
+于是得到三个矩阵：
+U = [ 1/√10    3/√10 ]
+    [ 3/√10   -1/√10 ]
+
+Σ = [ 3√5    0  ]
+    [  0    √5  ]
+
+V = [ 1/√2    1/√2 ]
+    [ 1/√2   -1/√2 ]
 
 因此 A = UΣVᵀ。代回可验证结果正确。
 
